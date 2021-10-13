@@ -1,0 +1,26 @@
+/* purgecss start ignore */
+@tailwind base;
+
+@tailwind components;
+/* purgecss end ignore */
+@tailwind utilities;
+
+/* purgecss start ignore */
+html {
+  @apply antialiased;
+}
+
+body {
+  background-color: #282a2e;
+  background-image: url(https://tatsu.gg/static/landing-page-background-pattern.png);
+  -webkit-background-size: 1100px;
+  background-size: 1100px;
+}
+
+@layer base {
+  .btn {
+    @apply rounded-md text-white border-2 py-2 px-4;
+    @apply hover:border-white hover:bg-white hover:opacity-100 hover:text-black transition duration-300;
+    @apply focus:outline-none;
+  }
+}
