@@ -2,9 +2,8 @@ import React from "react";
 
 import Head from "next/head";
 
-import SearchIcon from "@components/icons/SearchIcon";
-import UserSearch from "@components/UserSearch";
 import Header from "@components/Header";
+import UserSearch from "@components/UserSearch";
 
 export default function Home() {
     return (
