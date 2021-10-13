@@ -1,6 +1,9 @@
 import Image from "next/image";
 import { UserProfile } from "tatsu";
 
+import CoinsIcon from "@components/icons/CoinsIcon";
+import StarIcon from "@components/icons/StarIcon";
+
 const UserCard = ({
     userProfile,
 }: {
@@ -40,7 +43,10 @@ const UserCard = ({
                 </p>
             </div>
             <div className="place-self-end">
-                <p className="text-tatsu-tokens">{userProfile.tokens} tokens</p>
+                <p className="text-tatsu-tokens flex">
+                    <CoinsIcon className="w-4 h-6" />
+                    {userProfile.tokens} tokens
+                </p>
             </div>
             <div className="justify-self-start col-span-2">
                 <p className="text-lg">Profile:</p>
@@ -52,7 +58,10 @@ const UserCard = ({
                 </p>
             </div>
             <div className="place-self-end">
-                <p className="text-tatsu-rep">{userProfile.reputation} rep</p>
+                <p className="text-tatsu-rep flex">
+                    <StarIcon />
+                    {userProfile.reputation} rep
+                </p>
             </div>
             <div className="justify-self-start col-span-3">
                 <p className="text-lg">Subscription:</p>
