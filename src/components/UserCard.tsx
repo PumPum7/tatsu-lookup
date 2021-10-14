@@ -1,7 +1,9 @@
+import Head from "next/head";
 import Image from "next/image";
 import { UserProfile } from "tatsu";
 
 import CoinsIcon from "@components/icons/CoinsIcon";
+import GratipayIcon from "@components/icons/GratipayIcon";
 import StarIcon from "@components/icons/StarIcon";
 
 const UserCard = ({
@@ -34,7 +36,14 @@ const UserCard = ({
                     {userProfile.username}#{userProfile.discriminator}
                 </p>
                 <p className="text-tatsuGray-light">{userProfile.id}</p>
-                <p>{userProfile.subscription_type}</p>
+                {userProfile.subscription_type > 0 ? (
+                    <p className="text-tatsu-supporter flex font-semibold">
+                        <GratipayIcon className="pr-2 w-6 h-6" /> Supporter
+                        {"+".repeat(userProfile.subscription_type - 1)}
+                    </p>
+                ) : (
+                    <p>Not a supporter</p>
+                )}
             </div>
             <div className="justify-self-start col-span-2">
                 <p className="text-lg">Wallet:</p>
@@ -44,7 +53,7 @@ const UserCard = ({
             </div>
             <div className="place-self-end">
                 <p className="text-tatsu-tokens flex">
-                    <CoinsIcon className="w-4 h-6" />
+                    <CoinsIcon className="pr-2 w-6 h-6" />
                     {userProfile.tokens} tokens
                 </p>
             </div>
