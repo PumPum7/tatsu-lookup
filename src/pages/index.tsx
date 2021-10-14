@@ -15,8 +15,6 @@ export default function Home() {
                     name="description"
                     content="Lookup tatsu information about a user using their ID"
                 />
-
-                <link rel="icon" href="/favicon.ico" />
             </Head>
             <Header />
             <main className="mx-auto max-w-sm md:max-w-2xl lg:max-w-screen-md">
