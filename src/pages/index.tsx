@@ -11,9 +11,12 @@ export default function Home() {
             <Head>
                 <title>Tatsu Lookup</title>
 
+                <meta property="og:type" content="website" />
+                <meta property="og:site_name" content="Tatsu Lookup" />
+                <meta property="og:title" content="Tatsu Lookup" />
                 <meta
-                    name="description"
-                    content="Lookup tatsu information about a user using their ID"
+                    property="og:description"
+                    content="Check out other users tatsu profile without using any commands!"
                 />
             </Head>
             <Header />
