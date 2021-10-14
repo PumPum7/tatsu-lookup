@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 
 import { useRouter } from "next/router";
 
+const MINIMUM_ID = 9999999999999999;
+
 const UserSearch = (): JSX.Element => {
     const router = useRouter();
     const inputField = useRef();
@@ -15,7 +17,7 @@ const UserSearch = (): JSX.Element => {
         if (inputField.current !== undefined) {
             // @ts-ignore
             const currentValue = inputField.current.value || 0;
-            if (currentValue > 9999999999999999) {
+            if (currentValue > MINIMUM_ID) {
                 router.push(currentValue);
             } else {
                 setError({
