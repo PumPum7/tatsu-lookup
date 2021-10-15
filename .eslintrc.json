@@ -10,7 +10,8 @@
     "plugin:import/errors",
     "plugin:import/warnings",
     "plugin:import/typescript",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "plugin:@next/next/recommended"
   ],
   "env": {
     "es6": true,
@@ -43,6 +44,7 @@
     "@typescript-eslint/member-delimiter-style": 0,
     "@typescript-eslint/no-explicit-any": 0,
     "@typescript-eslint/no-var-requires": 0,
+    "@typescript-eslint/ban-ts-comment": "off",
     "no-use-before-define": 0,
     "@typescript-eslint/no-use-before-define": 0,
     "import/extensions": ["error", "never", { "svg": "always" }],
@@ -61,6 +63,7 @@
         "allow": ["warn", "error"]
       }
     ],
+    "@next/next/no-document-import-in-page": 0,
     "import/order": [
       "error",
       {
