@@ -23,7 +23,6 @@ const UserCard = ({
             <Image
                 src={userProfile.avatar_url}
                 alt="profile picture"
-                placeholder="blur"
                 width={120}
                 height={120}
                 className="rounded-full"
