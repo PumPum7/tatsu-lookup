@@ -18,12 +18,20 @@ export default function UserLookupPage({
             <Head>
                 <title>Tatsu Lookup</title>
 
-                <meta
-                    name="description"
-                    content="Lookup tatsu information about a user using their ID"
-                />
+                <title>Tatsu user {userProfile.username}`s lookup</title>
 
-                <link rel="icon" href="/favicon.ico" />
+                <meta property="og:type" content="website" />
+                <meta property="og:site_name" content="Tatsu Lookup" />
+                <meta
+                    property="og:title"
+                    content={`Tatsu user ${userProfile.username}'s lookup`}
+                />
+                <meta
+                    property="og:description"
+                    content={`Check out ${userProfile.username}'s tatsu stats!`}
+                />
+                <meta property="og:image" content={userProfile.avatar_url} />
+                <meta name="twitter:card" content="summary_small_image" />
             </Head>
             <Header />
             <main className="mx-auto max-w-sm md:max-w-2xl lg:max-w-screen-md">
