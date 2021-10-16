@@ -55,7 +55,8 @@ const UserSearch = (): JSX.Element => {
                     <button
                         type="submit"
                         onClick={handleClick}
-                        className="btn border-tatsuGreen bg-tatsuGreen bg-opacity-50">
+                        className="btn border-tatsuGreen bg-tatsuGreen bg-opacity-50"
+                    >
                         search
                     </button>
                 </div>

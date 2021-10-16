@@ -20,7 +20,7 @@ const UserCard = ({
     }
 
     return (
-        <div className="rounded-md bg-tatsuGray-dark p-4 w-3/4 mt-6 mx-auto grid grid-cols-3 gap-4 justify-items-center text-white">
+        <div className="rounded-md bg-tatsuGray-dark p-4 sm:w-3/4 w-11/12 mt-6 mx-auto grid grid-cols-3 gap-4 justify-items-center text-white ">
             <Image
                 src={userProfile.avatar_url}
                 alt="profile picture"
