@@ -73,6 +73,11 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
     // calculate the level
     userData.level = Math.floor(Math.sqrt(((userData.xp as number) * 9) / 625));
 
+    // handles default user avatars
+    if (userData.avatar_url.includes("embed")) {
+        userData.avatar_url += ".png";
+    }
+
     return {
         props: { userProfile: userData },
         revalidate: 60,
