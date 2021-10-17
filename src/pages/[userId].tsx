@@ -52,16 +52,29 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (context: any) => {
     const { userId } = context.params;
 
+    let errorHappened: boolean;
+
+    let userData: UserProfile;
+
     // @ts-ignore
     const client = new Tatsu(process.env.TATSU_KEY);
-    const { _data: userData } = await client
-        .getProfile(userId)
-        .then((result) => result);
+    try {
+        ({ _data: userData } = await client
+            .getProfile(userId)
+            .then((result) => result));
+    } catch {
+        errorHappened = true;
+    }
+
+    if (errorHappened) {
+        return { notFound: true };
+    }
 
     // calculate the level
     userData.level = Math.floor(Math.sqrt(((userData.xp as number) * 9) / 625));
 
-    return { props: { userProfile: userData }, revalidate: 10 };
+    return {
+        props: { userProfile: userData },
+        revalidate: 60,
+    };
 };
-
-// TODO: handle errors
