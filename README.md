@@ -26,11 +26,11 @@ A website to interact with the Tatsu API to find out information about a user.
 
 - ##### User Profile
 
-  ![User Profile Preview](.\img\UserProfile_Preview.png)
+  ![User Profile Preview](./img/UserProfile_Preview.png)
 
 - ##### Discord Embed
 
-  ![Discord Embed Preview](.\img\DiscordEmbed_Preview.png)
+  ![Discord Embed Preview](./img/DiscordEmbed_Preview.png)
 
 ## Planned Features
 
