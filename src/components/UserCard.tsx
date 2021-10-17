@@ -1,9 +1,8 @@
 import Image from "next/image";
 import { UserProfile } from "tatsu";
 
-import CoinsIcon from "@components/icons/CoinsIcon";
 import GratipayIcon from "@components/icons/GratipayIcon";
-import StarIcon from "@components/icons/StarIcon";
+import UserStats from "@components/UserStats";
 
 const UserCard = ({
     userProfile,
@@ -43,55 +42,12 @@ const UserCard = ({
                     <p>Not a supporter</p>
                 )}
             </div>
-            <div className="justify-self-start col-span-2">
-                <p className="text-lg">Wallet:</p>
-                <p className="text-tatsuGray-light">
-                    ¥ {userProfile.credits} credits
-                </p>
-            </div>
-            <div className="place-self-end">
-                <p className="text-tatsu-tokens flex">
-                    <CoinsIcon className="pr-2 w-6 h-6" />
-                    {userProfile.tokens} tokens
-                </p>
-            </div>
-            <div className="justify-self-start col-span-2">
-                <p className="text-lg">Profile:</p>
-                <p className="text-tatsu-exp">
-                    EXP {userProfile.xp}{" "}
-                    <span className="text-tatsu-level">
-                        (lvl {userProfile.level})
-                    </span>
-                </p>
-            </div>
-            <div className="place-self-end">
-                <p className="text-tatsu-rep flex">
-                    <StarIcon />
-                    {userProfile.reputation} rep
-                </p>
-            </div>
-            <div className="justify-self-start col-span-3">
-                <p className="text-lg">Subscription:</p>
-                {userProfile.subscription_type > 0 ? (
-                    <p>
-                        <span className={subscriptionColor}>
-                            Tier {userProfile.subscription_type}
-                        </span>
-                        , ends{" "}
-                        {new Date(
-                            userProfile.subscription_renewal
-                        ).toDateString()}
-                    </p>
-                ) : (
-                    <p>Not a supporter currently</p>
-                )}
-            </div>
+            <UserStats
+                userProfile={userProfile}
+                subscriptionColor={subscriptionColor}
+            />
         </div>
     );
 };
 
 export default UserCard;
-
-// TODO: use more components here
-// TODO: supporter text
-// https://cdn.discordapp.com/attachments/376036722297012224/897863521205907527/unknown.png
