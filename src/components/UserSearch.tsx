@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 import { useRouter } from "next/router";
 
-const MINIMUM_ID = 9999999999999999;
+const MINIMUM_ID = 1e13;
 
 const UserSearch = (): JSX.Element => {
     const router = useRouter();
