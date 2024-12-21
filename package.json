@@ -19,6 +19,7 @@
     "dependencies": {
         "autoprefixer": "^10.3.7",
         "babel-plugin-module-resolver": "5.0.2",
+        "js-cookie": "^3.0.5",
         "next": "15.1.2",
         "postcss": "^8.4.31",
         "react": "19.0.0",
@@ -32,6 +33,7 @@
         "@next/eslint-plugin-next": "15.0.3",
         "@tailwindcss/forms": "0.5.9",
         "@tailwindcss/typography": "0.5.15",
+        "@types/js-cookie": "^3.0.6",
         "@types/node": "22.10.2",
         "@types/react": "19.0.2",
         "@typescript-eslint/eslint-plugin": "8.18.1",

@@ -5,11 +5,17 @@ import UserSearch from "@components/UserSearch";
 import { notFound } from "next/navigation";
 
 interface Props {
-    params: { userId: string };
+    params: Promise<{ userId: string }>;
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata(props: Props): Promise<Metadata> {
+    const params = await props.params;
     try {
+        if (!process.env.TATSU_KEY) {
+            console.error("TATSU_KEY is not defined");
+            notFound();
+        }
+
         const client = new Tatsu(process.env.TATSU_KEY);
         const userData = await client.getProfile(params.userId);
         
@@ -22,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
                 images: [userData.avatar_url],
             },
             twitter: {
-                card: "summary_small_image",
+                card: "summary_large_image",
             },
         };
     } catch {
@@ -34,6 +40,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 async function getUserProfile(userId: string): Promise<UserProfile> {
+    if (!process.env.TATSU_KEY) {
+        console.error("TATSU_KEY is not defined");
+        notFound();
+    }
+
     const client = new Tatsu(process.env.TATSU_KEY);
     try {
         const userData = await client.getProfile(userId);
@@ -58,7 +69,8 @@ async function getUserProfile(userId: string): Promise<UserProfile> {
     }
 }
 
-export default async function UserLookupPage({ params }: Props) {
+export default async function UserLookupPage(props: Props) {
+    const params = await props.params;
     const userProfile = await getUserProfile(params.userId);
 
     return (
