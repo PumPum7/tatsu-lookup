@@ -1,4 +1,4 @@
-const GratipayIcon = ({ className }: { className?: string }) => {
+function GratipayIcon({ className }: { className?: string }) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -13,6 +13,6 @@ const GratipayIcon = ({ className }: { className?: string }) => {
             />
         </svg>
     );
-};
+}
 
 export default GratipayIcon;

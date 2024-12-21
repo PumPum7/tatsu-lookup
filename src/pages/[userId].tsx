@@ -49,7 +49,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
     };
 };
 
-export const getStaticProps: GetStaticProps<{ userProfile: UserProfile }> = async (context: any) => {
+export const getStaticProps: GetStaticProps<{
+    userProfile: UserProfile;
+}> = async (context: any) => {
     const { userId } = context.params;
 
     let errorHappened: boolean;
@@ -68,16 +70,19 @@ export const getStaticProps: GetStaticProps<{ userProfile: UserProfile }> = asyn
         return { notFound: true };
     }
     // calculate the level
-    const calculatedLevel = Math.floor(Math.sqrt(((userData.xp as number) * 9) / 625));
+    const calculatedLevel = Math.floor(
+        Math.sqrt(((userData.xp as number) * 9) / 625)
+    );
     userDataCopy.level = calculatedLevel;
 
     // handles default user avatars
     if (userData.avatar_url.includes("embed")) {
-        userDataCopy.avatar_url = userData.avatar_url + ".png";
+        userDataCopy.avatar_url = `${userData.avatar_url}.png`;
     }
 
     if (userDataCopy.subscription_renewal) {
-        userDataCopy.subscription_renewal = userDataCopy.subscription_renewal.toString();
+        userDataCopy.subscription_renewal =
+            userDataCopy.subscription_renewal.toString();
     }
 
     return {

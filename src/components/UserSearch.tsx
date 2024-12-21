@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 
 const MINIMUM_ID = 1e13;
 
-const UserSearch = () => {
+function UserSearch() {
     const router = useRouter();
     const inputField = useRef<HTMLInputElement>(null);
     const [error, setError] = useState<{ status: boolean; message: string }>({
@@ -16,7 +16,7 @@ const UserSearch = () => {
         e.preventDefault();
         if (inputField.current !== undefined) {
             // @ts-ignore
-            const currentValue = parseInt(inputField.current.value) || 0;
+            const currentValue = parseInt(inputField.current.value, 10) || 0;
             if (currentValue > MINIMUM_ID) {
                 router.push(`/${currentValue}`);
             } else {
@@ -68,6 +68,6 @@ const UserSearch = () => {
             </form>
         </div>
     );
-};
+}
 
 export default UserSearch;

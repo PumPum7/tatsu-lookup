@@ -3,16 +3,18 @@ import { UserProfile } from "tatsu";
 import CoinsIcon from "@components/icons/CoinsIcon";
 import StarIcon from "@components/icons/StarIcon";
 
-const UserStats = ({
+function UserStats({
     userProfile,
     subscriptionColor,
 }: {
     userProfile: UserProfile;
     subscriptionColor: string;
-}) => {
+}) {
     const {
         credits,
+        // eslint-disable-next-line camelcase
         subscription_type,
+        // eslint-disable-next-line camelcase
         subscription_renewal,
         xp,
         reputation,
@@ -61,6 +63,6 @@ const UserStats = ({
             </div>
         </>
     );
-};
+}
 
 export default UserStats;

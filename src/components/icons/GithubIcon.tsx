@@ -1,4 +1,4 @@
-const GithubIcon = ({ className }: { className?: string }) => {
+function GithubIcon({ className }: { className?: string }) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -13,6 +13,6 @@ const GithubIcon = ({ className }: { className?: string }) => {
             />
         </svg>
     );
-};
+}
 
 export default GithubIcon;
