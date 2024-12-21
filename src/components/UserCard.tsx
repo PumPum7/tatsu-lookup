@@ -4,11 +4,7 @@ import { UserProfile } from "tatsu";
 import GratipayIcon from "@components/icons/GratipayIcon";
 import UserStats from "@components/UserStats";
 
-const UserCard = ({
-    userProfile,
-}: {
-    userProfile: UserProfile;
-}): JSX.Element => {
+function UserCard({ userProfile }: { userProfile: UserProfile }) {
     const subscriptionType = userProfile.subscription_type;
     let subscriptionColor = "text-tatsu-tier1";
 
@@ -29,9 +25,7 @@ const UserCard = ({
             />
             <div className="justify-self-start col-span-2">
                 <p className="text-sm">{userProfile.title}</p>
-                <p className="text-xl">
-                    {userProfile.username}#{userProfile.discriminator}
-                </p>
+                <p className="text-xl">{userProfile.username}</p>
                 <p className="text-tatsuGray-light">{userProfile.id}</p>
                 {userProfile.subscription_type > 0 ? (
                     <p className="text-tatsu-supporter flex font-semibold">
@@ -48,6 +42,6 @@ const UserCard = ({
             />
         </div>
     );
-};
+}
 
 export default UserCard;

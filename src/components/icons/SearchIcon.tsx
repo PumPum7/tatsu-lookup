@@ -1,4 +1,4 @@
-const SearchIcon = ({ className }: { className?: string }): JSX.Element => {
+function SearchIcon({ className }: { className?: string }) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -15,6 +15,6 @@ const SearchIcon = ({ className }: { className?: string }): JSX.Element => {
             />
         </svg>
     );
-};
+}
 
 export default SearchIcon;

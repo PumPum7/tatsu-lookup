@@ -1,61 +1,57 @@
 {
-  "name": "tatsu-lookup",
-  "author": "@Pum",
-  "license": "MIT",
-  "version": "1.0.0",
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "type-check": "tsc --pretty --noEmit",
-    "format": "prettier --write .",
-    "lint": "eslint src --fix",
-    "test": "jest",
-    "test-all": "yarn lint && yarn type-check && yarn test"
-  },
-  "lint-staged": {
-    "src/**/*.{ts,tsx}": [
-      "yarn lint"
-    ]
-  },
-  "dependencies": {
-    "autoprefixer": "^10.3.7",
-    "babel-plugin-module-resolver": "^4.1.0",
-    "next": "^13.5.0",
-    "postcss": "^8.4.31",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "sass": "^1.32.12",
-    "tailwindcss": "^2.2.17",
-    "tatsu": "^0.3.1"
-  },
-  "devDependencies": {
-    "@next/eslint-plugin-next": "^11.1.2",
-    "@tailwindcss/forms": "^0.3.2",
-    "@tailwindcss/typography": "^0.4.0",
-    "@testing-library/react": "^11.2.6",
-    "@types/jest": "^26.0.23",
-    "@types/node": "^15.0.2",
-    "@types/react": "^17.0.5",
-    "@typescript-eslint/eslint-plugin": "^5.47.1",
-    "@typescript-eslint/parser": "^5.47.1",
-    "babel-jest": "^26.6.3",
-    "eslint": "^7.26.0",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-import-resolver-babel-module": "^5.3.1",
-    "eslint-import-resolver-typescript": "^2.4.0",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-prettier": "^3.4.0",
-    "eslint-plugin-react": "^7.23.2",
-    "eslint-plugin-react-hooks": "^4.2.0",
-    "eslint-plugin-unused-imports": "^1.1.0",
-    "identity-obj-proxy": "^3.0.0",
-    "jest": "^26.6.3",
-    "jest-watch-typeahead": "^0.6.3",
-    "lint-staged": "^11.0.0",
-    "prettier": "^2.2.1",
-    "typescript": "^4.2.4"
-  }
+    "name": "tatsu-lookup",
+    "author": "@Pum",
+    "license": "MIT",
+    "version": "1.0.0",
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "type-check": "tsc --pretty --noEmit",
+        "format": "prettier --write .",
+        "lint": "eslint src --fix"
+    },
+    "lint-staged": {
+        "src/**/*.{ts,tsx}": [
+            "yarn lint"
+        ]
+    },
+    "dependencies": {
+        "autoprefixer": "^10.3.7",
+        "babel-plugin-module-resolver": "5.0.2",
+        "next": "15.1.2",
+        "postcss": "^8.4.31",
+        "react": "19.0.0",
+        "react-dom": "19.0.0",
+        "sass": "^1.32.12",
+        "tailwindcss": "3.4.17",
+        "tatsu": "1.2.0"
+    },
+    "devDependencies": {
+        "@eslint/compat": "^1.2.4",
+        "@eslint/eslintrc": "^3.2.0",
+        "@eslint/js": "^9.17.0",
+        "@next/eslint-plugin-next": "15.0.3",
+        "@tailwindcss/forms": "0.5.9",
+        "@tailwindcss/typography": "0.5.15",
+        "@types/node": "22.10.2",
+        "@types/react": "19.0.2",
+        "@typescript-eslint/eslint-plugin": "8.18.1",
+        "@typescript-eslint/parser": "8.18.1",
+        "eslint": "9.17.0",
+        "eslint-config-airbnb": "19.0.4",
+        "eslint-config-prettier": "9.1.0",
+        "eslint-import-resolver-babel-module": "^5.3.1",
+        "eslint-import-resolver-typescript": "3.7.0",
+        "eslint-plugin-import": "^2.22.1",
+        "eslint-plugin-jsx-a11y": "^6.4.1",
+        "eslint-plugin-prettier": "5.2.1",
+        "eslint-plugin-react": "^7.23.2",
+        "eslint-plugin-react-hooks": "5.1.0",
+        "eslint-plugin-unused-imports": "4.1.4",
+        "globals": "^15.14.0",
+        "lint-staged": "15.2.11",
+        "prettier": "3.4.2",
+        "typescript": "5.7.2"
+    }
 }

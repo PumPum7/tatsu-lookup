@@ -3,13 +3,13 @@ import { UserProfile } from "tatsu";
 import CoinsIcon from "@components/icons/CoinsIcon";
 import StarIcon from "@components/icons/StarIcon";
 
-const UserStats = ({
+function UserStats({
     userProfile,
     subscriptionColor,
 }: {
     userProfile: UserProfile;
     subscriptionColor: string;
-}): JSX.Element => {
+}) {
     const {
         credits,
         // eslint-disable-next-line camelcase
@@ -63,6 +63,6 @@ const UserStats = ({
             </div>
         </>
     );
-};
+}
 
 export default UserStats;

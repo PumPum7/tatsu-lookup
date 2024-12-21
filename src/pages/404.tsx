@@ -11,8 +11,8 @@ export default function Custom404() {
                 <h3 className="text-2xl text-bold pb-4">
                     Sorry, this user was not found!
                 </h3>
-                <Link href="/">
-                    <a className="text-xl underline">Go back!</a>
+                <Link href="/" className="text-xl underline">
+                    Go back!
                 </Link>
             </div>
         </>

@@ -1,4 +1,4 @@
-const CoinsIcon = ({ className }: { className?: string }): JSX.Element => {
+function CoinsIcon({ className }: { className?: string }) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -13,6 +13,6 @@ const CoinsIcon = ({ className }: { className?: string }): JSX.Element => {
             />
         </svg>
     );
-};
+}
 
 export default CoinsIcon;
