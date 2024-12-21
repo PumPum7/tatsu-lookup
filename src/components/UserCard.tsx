@@ -8,7 +8,7 @@ const UserCard = ({
     userProfile,
 }: {
     userProfile: UserProfile;
-}): JSX.Element => {
+}) => {
     const subscriptionType = userProfile.subscription_type;
     let subscriptionColor = "text-tatsu-tier1";
 
@@ -30,7 +30,7 @@ const UserCard = ({
             <div className="justify-self-start col-span-2">
                 <p className="text-sm">{userProfile.title}</p>
                 <p className="text-xl">
-                    {userProfile.username}#{userProfile.discriminator}
+                    {userProfile.username}
                 </p>
                 <p className="text-tatsuGray-light">{userProfile.id}</p>
                 {userProfile.subscription_type > 0 ? (

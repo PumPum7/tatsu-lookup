@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    background-color: #282a2e;
+    background-image: url("../../public/landing-page-background-pattern.png");
+    -webkit-background-size: 1100px;
+    background-size: 1100px;
+    color: #f8fafc;
+}
+
+.btn {
+    border-radius: 0.375rem;
+    border-width: 2px;
+    padding: 0.5rem 1rem;
+    color: rgb(248, 250, 252);
+    transition-property: all;
+    transition-duration: 300ms;
+    outline: none;
+}
+
+@layer base {
+    html {
+        @apply antialiased;
+    }
+}

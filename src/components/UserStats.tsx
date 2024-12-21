@@ -9,12 +9,10 @@ const UserStats = ({
 }: {
     userProfile: UserProfile;
     subscriptionColor: string;
-}): JSX.Element => {
+}) => {
     const {
         credits,
-        // eslint-disable-next-line camelcase
         subscription_type,
-        // eslint-disable-next-line camelcase
         subscription_renewal,
         xp,
         reputation,

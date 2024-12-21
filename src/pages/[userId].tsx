@@ -2,7 +2,7 @@ import React from "react";
 
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
-import Tatsu, { UserProfile } from "tatsu";
+import { Tatsu, UserProfile } from "tatsu";
 
 import Header from "@components/Header";
 import UserCard from "@components/UserCard";
@@ -49,37 +49,39 @@ export const getStaticPaths: GetStaticPaths = async () => {
     };
 };
 
-export const getStaticProps: GetStaticProps = async (context: any) => {
+export const getStaticProps: GetStaticProps<{ userProfile: UserProfile }> = async (context: any) => {
     const { userId } = context.params;
 
     let errorHappened: boolean;
 
     let userData: UserProfile;
+    let userDataCopy;
 
-    // @ts-ignore
     const client = new Tatsu(process.env.TATSU_KEY);
     try {
-        ({ _data: userData } = await client
-            .getProfile(userId)
-            .then((result) => result));
+        userData = await client.getProfile(userId);
+        userDataCopy = userData.toJSON();
     } catch {
         errorHappened = true;
     }
-
     if (errorHappened) {
         return { notFound: true };
     }
-
     // calculate the level
-    userData.level = Math.floor(Math.sqrt(((userData.xp as number) * 9) / 625));
+    const calculatedLevel = Math.floor(Math.sqrt(((userData.xp as number) * 9) / 625));
+    userDataCopy.level = calculatedLevel;
 
     // handles default user avatars
     if (userData.avatar_url.includes("embed")) {
-        userData.avatar_url += ".png";
+        userDataCopy.avatar_url = userData.avatar_url + ".png";
+    }
+
+    if (userDataCopy.subscription_renewal) {
+        userDataCopy.subscription_renewal = userDataCopy.subscription_renewal.toString();
     }
 
     return {
-        props: { userProfile: userData },
+        props: { userProfile: userDataCopy as UserProfile },
         revalidate: 60,
     };
 };

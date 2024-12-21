@@ -5,7 +5,7 @@ import SearchIcon from "@components/icons/SearchIcon";
 
 const GITHUB_URL = "https://github.com/PumPum7/tatsu-lookup";
 
-const Header = (): JSX.Element => {
+const Header = () => {
     return (
         <header className="flex justify-center items-center bg-tatsuGreen text-white relative">
             <SearchIcon className="md:w-14 md:h-14 w-8 h-8" />

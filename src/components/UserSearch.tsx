@@ -4,21 +4,21 @@ import { useRouter } from "next/router";
 
 const MINIMUM_ID = 1e13;
 
-const UserSearch = (): JSX.Element => {
+const UserSearch = () => {
     const router = useRouter();
-    const inputField = useRef();
+    const inputField = useRef<HTMLInputElement>(null);
     const [error, setError] = useState<{ status: boolean; message: string }>({
         status: false,
         message: "",
     });
 
-    const handleClick = (e) => {
+    const handleClick = (e: React.FormEvent<HTMLButtonElement>) => {
         e.preventDefault();
         if (inputField.current !== undefined) {
             // @ts-ignore
-            const currentValue = inputField.current.value || 0;
+            const currentValue = parseInt(inputField.current.value) || 0;
             if (currentValue > MINIMUM_ID) {
-                router.push(currentValue);
+                router.push(`/${currentValue}`);
             } else {
                 setError({
                     status: true,
@@ -54,7 +54,7 @@ const UserSearch = (): JSX.Element => {
                     />
                     <button
                         type="submit"
-                        onClick={handleClick}
+                        onClick={(e) => handleClick(e)}
                         className="btn border-tatsuGreen bg-tatsuGreen bg-opacity-50"
                     >
                         search
