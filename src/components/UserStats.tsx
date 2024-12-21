@@ -12,9 +12,9 @@ function UserStats({
 }) {
     const {
         credits,
-        // eslint-disable-next-line camelcase
+
         subscription_type,
-        // eslint-disable-next-line camelcase
+
         subscription_renewal,
         xp,
         reputation,
@@ -48,11 +48,11 @@ function UserStats({
             </div>
             <div className="justify-self-start col-span-3">
                 <p className="text-lg">Subscription:</p>
-                {/* eslint-disable-next-line camelcase */}
+                {}
                 {subscription_type > 0 ? (
                     <p>
                         <span className={subscriptionColor}>
-                            {/* eslint-disable-next-line camelcase */}
+                            {}
                             Tier {subscription_type}
                         </span>
                         , ends {new Date(subscription_renewal).toDateString()}
