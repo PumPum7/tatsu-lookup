@@ -16,7 +16,7 @@ function UserSearch() {
         e.preventDefault();
         if (inputField.current !== undefined) {
             // @ts-ignore
-            const currentValue = parseInt(inputField.current.value, 10) || 0;
+            const currentValue = BigInt(inputField.current.value || "0");
             if (currentValue > MINIMUM_ID) {
                 router.push(`/${currentValue}`);
             } else {
