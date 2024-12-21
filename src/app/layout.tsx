@@ -1,10 +1,12 @@
+import React from "react";
 import type { Metadata } from "next";
 import Header from "@components/Header";
 import "../styles/global.css";
 
 export const metadata: Metadata = {
     title: "Tatsu Lookup",
-    description: "Check out other users tatsu profile without using any commands!",
+    description:
+        "Check out other users tatsu profile without using any commands!",
 };
 
 export default function RootLayout({

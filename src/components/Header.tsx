@@ -17,7 +17,11 @@ function Header() {
                 </h1>
             </div>
             <div className="flex items-center gap-4">
-                <Link href="/favorites" className="hover:text-opacity-80" title="Favorites">
+                <Link
+                    href="/favorites"
+                    className="hover:text-opacity-80"
+                    title="Favorites"
+                >
                     <FavoriteIcon filled className="w-8 h-8 md:w-10 md:h-10" />
                 </Link>
                 <a

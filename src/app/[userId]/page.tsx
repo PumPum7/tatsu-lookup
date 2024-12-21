@@ -18,23 +18,25 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 
         const client = new Tatsu(process.env.TATSU_KEY);
         const userData = await client.getProfile(params.userId);
-        
+
         const title = `${userData.username}'s Tatsu Profile`;
         const description = `Level ${Math.floor(Math.sqrt((userData.xp * 9) / 625))} • ${userData.reputation} Rep • ${userData.credits} Credits`;
-        
+
         return {
             title,
             description,
             openGraph: {
                 title,
                 description,
-                images: [{
-                    url: userData.avatar_url,
-                    width: 400,
-                    height: 400,
-                    alt: `${userData.username}'s avatar`
-                }],
-                type: 'profile',
+                images: [
+                    {
+                        url: userData.avatar_url,
+                        width: 400,
+                        height: 400,
+                        alt: `${userData.username}'s avatar`,
+                    },
+                ],
+                type: "profile",
                 firstName: userData.username,
             },
             twitter: {
@@ -65,7 +67,9 @@ async function getUserProfile(userId: string): Promise<UserProfile> {
         const userDataCopy = userData.toJSON();
 
         // calculate the level
-        const calculatedLevel = Math.floor(Math.sqrt(((userData.xp as number) * 9) / 625));
+        const calculatedLevel = Math.floor(
+            Math.sqrt(((userData.xp as number) * 9) / 625)
+        );
         userDataCopy.level = calculatedLevel;
 
         // handles default user avatars
@@ -74,7 +78,8 @@ async function getUserProfile(userId: string): Promise<UserProfile> {
         }
 
         if (userDataCopy.subscription_renewal) {
-            userDataCopy.subscription_renewal = userDataCopy.subscription_renewal.toString();
+            userDataCopy.subscription_renewal =
+                userDataCopy.subscription_renewal.toString();
         }
 
         return userDataCopy as UserProfile;

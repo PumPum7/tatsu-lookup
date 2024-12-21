@@ -32,7 +32,7 @@ function UserCard({ userProfile }: { userProfile: UserProfile }) {
 
     const handleShare = async () => {
         const url = `${window.location.origin}/${userProfile.id}`;
-        
+
         if (navigator.share) {
             try {
                 await navigator.share({
@@ -40,7 +40,7 @@ function UserCard({ userProfile }: { userProfile: UserProfile }) {
                     text: `Check out ${userProfile.username}'s Tatsu profile!`,
                     url: url,
                 });
-            } catch (err) {
+            } catch {
                 await copyToClipboard(url);
             }
         } else {
@@ -54,7 +54,7 @@ function UserCard({ userProfile }: { userProfile: UserProfile }) {
             setShowShareTooltip(true);
             setTimeout(() => setShowShareTooltip(false), 2000);
         } catch (err) {
-            console.error('Failed to copy:', err);
+            console.error("Failed to copy:", err);
         }
     };
 
@@ -72,7 +72,11 @@ function UserCard({ userProfile }: { userProfile: UserProfile }) {
                     <button
                         onClick={handleFavoriteClick}
                         className="p-1 rounded-full bg-tatsuGray-dark hover:bg-tatsuGray transition-colors"
-                        aria-label={isFavorite(userProfile.id) ? "Remove from favorites" : "Add to favorites"}
+                        aria-label={
+                            isFavorite(userProfile.id)
+                                ? "Remove from favorites"
+                                : "Add to favorites"
+                        }
                     >
                         <FavoriteIcon
                             filled={isFavorite(userProfile.id)}

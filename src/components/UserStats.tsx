@@ -48,7 +48,9 @@ function UserStats({
                 <div className="relative pt-1">
                     <div className="flex items-center justify-between">
                         <div>
-                            <span className="text-tatsu-exp">Level {level}</span>
+                            <span className="text-tatsu-exp">
+                                Level {level}
+                            </span>
                         </div>
                     </div>
                     <div className="group relative">
@@ -63,7 +65,8 @@ function UserStats({
                         </div>
                     </div>
                     <div className="text-sm text-tatsuGray-light mt-1">
-                        {experience.toLocaleString("en-US")} / {nextLevelXP.toLocaleString("en-US")} XP
+                        {experience.toLocaleString("en-US")} /{" "}
+                        {nextLevelXP.toLocaleString("en-US")} XP
                     </div>
                 </div>
             </div>
@@ -80,7 +83,10 @@ function UserStats({
                         <span className={subscriptionColor}>
                             Tier {subscription_type}
                         </span>
-                        , ends {subscription_renewal ? new Date(subscription_renewal).toDateString() : "unknown"}
+                        , ends{" "}
+                        {subscription_renewal
+                            ? new Date(subscription_renewal).toDateString()
+                            : "unknown"}
                     </p>
                 ) : (
                     <p>Not a supporter currently</p>

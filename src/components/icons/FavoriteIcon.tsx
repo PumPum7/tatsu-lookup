@@ -1,4 +1,10 @@
-export default function FavoriteIcon({ className = "", filled = false }: { className?: string, filled?: boolean }) {
+export default function FavoriteIcon({
+    className = "",
+    filled = false,
+}: {
+    className?: string;
+    filled?: boolean;
+}) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"

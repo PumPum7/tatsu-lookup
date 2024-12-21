@@ -1,7 +1,7 @@
 import { Tatsu, UserProfile } from "tatsu";
 import UserCard from "@components/UserCard";
 import Link from "next/link";
-import { cookies } from 'next/headers';
+import { cookies } from "next/headers";
 
 async function getFavoriteUsers() {
     if (!process.env.TATSU_KEY) {
@@ -10,7 +10,7 @@ async function getFavoriteUsers() {
 
     // Get favorites from cookie
     const cookieStore = await cookies();
-    const favoritesStr = cookieStore.get('favorites')?.value;
+    const favoritesStr = cookieStore.get("favorites")?.value;
     const favorites = favoritesStr ? JSON.parse(favoritesStr) : [];
 
     if (favorites.length === 0) {
@@ -23,9 +23,11 @@ async function getFavoriteUsers() {
             try {
                 const userData = await client.getProfile(userId);
                 const userDataCopy = userData.toJSON();
-                
+
                 // calculate the level
-                const calculatedLevel = Math.floor(Math.sqrt(((userData.xp as number) * 9) / 625));
+                const calculatedLevel = Math.floor(
+                    Math.sqrt(((userData.xp as number) * 9) / 625)
+                );
                 userDataCopy.level = calculatedLevel;
 
                 // handles default user avatars
@@ -34,7 +36,8 @@ async function getFavoriteUsers() {
                 }
 
                 if (userDataCopy.subscription_renewal) {
-                    userDataCopy.subscription_renewal = userDataCopy.subscription_renewal.toString();
+                    userDataCopy.subscription_renewal =
+                        userDataCopy.subscription_renewal.toString();
                 }
 
                 return userDataCopy as UserProfile;
@@ -55,15 +58,20 @@ export default async function FavoritesPage() {
         <div className="p-4">
             <div className="flex justify-between items-center mb-6">
                 <h1 className="text-2xl text-white">Favorite Users</h1>
-                <Link href="/" className="text-tatsuGreen hover:text-opacity-80">
+                <Link
+                    href="/"
+                    className="text-tatsuGreen hover:text-opacity-80"
+                >
                     Back to Search
                 </Link>
             </div>
             <div className="flex flex-col gap-4">
                 {users.length === 0 ? (
-                    <p className="text-white text-center">No favorite users yet.</p>
+                    <p className="text-white text-center">
+                        No favorite users yet.
+                    </p>
                 ) : (
-                users.map((user) => (
+                    users.map((user) => (
                         <UserCard key={user.id} userProfile={user} />
                     ))
                 )}
