@@ -19,16 +19,30 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
         const client = new Tatsu(process.env.TATSU_KEY);
         const userData = await client.getProfile(params.userId);
         
+        const title = `${userData.username}'s Tatsu Profile`;
+        const description = `Level ${Math.floor(Math.sqrt((userData.xp * 9) / 625))} • ${userData.reputation} Rep • ${userData.credits} Credits`;
+        
         return {
-            title: `Tatsu user ${userData.username}'s lookup`,
-            description: `Check out ${userData.username}'s tatsu stats!`,
+            title,
+            description,
             openGraph: {
-                title: `Tatsu user ${userData.username}'s lookup`,
-                description: `Check out ${userData.username}'s tatsu stats!`,
-                images: [userData.avatar_url],
+                title,
+                description,
+                images: [{
+                    url: userData.avatar_url,
+                    width: 400,
+                    height: 400,
+                    alt: `${userData.username}'s avatar`
+                }],
+                type: 'profile',
+                firstName: userData.username,
             },
             twitter: {
                 card: "summary_large_image",
+                title,
+                description,
+                images: [userData.avatar_url],
+                creator: "@Pum",
             },
         };
     } catch {
