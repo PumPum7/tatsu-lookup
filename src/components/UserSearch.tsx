@@ -1,6 +1,8 @@
-import { useEffect, useRef, useState } from "react";
+"use client";
 
-import { useRouter } from "next/router";
+import React, { useEffect, useRef, useState } from "react";
+
+import { useRouter } from "next/navigation";
 
 const MINIMUM_ID = 1e13;
 
@@ -14,8 +16,7 @@ function UserSearch() {
 
     const handleClick = (e: React.FormEvent<HTMLButtonElement>) => {
         e.preventDefault();
-        if (inputField.current !== undefined) {
-            // @ts-ignore
+        if (inputField.current !== null) {
             const currentValue = BigInt(inputField.current.value || "0");
             if (currentValue > MINIMUM_ID) {
                 router.push(`/${currentValue}`);
