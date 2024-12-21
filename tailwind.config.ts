@@ -1,12 +1,11 @@
-const defaultTheme = require("tailwindcss/defaultTheme");
+import defaultTheme from "tailwindcss/defaultTheme";
+import type { Config } from "tailwindcss";
 
-module.exports = {
-    mode: "jit",
-    purge: [
+export default {
+    content: [
         "./src/pages/**/*.{js,ts,jsx,tsx}",
         "./src/components/**/*.{js,ts,jsx,tsx}",
     ],
-    darkMode: false, // or 'media' or 'class'
     theme: {
         extend: {
             fontFamily: {
@@ -38,8 +37,6 @@ module.exports = {
                 tier1: "rgb(171,188,245)",
                 supporter: "rgb(246,104,84)",
             },
-            white: defaultTheme.colors.white,
-            black: defaultTheme.colors.black,
         },
     },
     variants: {
@@ -51,4 +48,4 @@ module.exports = {
         // eslint-disable-next-line global-require
         require("@tailwindcss/forms"),
     ],
-};
+} satisfies Config;
