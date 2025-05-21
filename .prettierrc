@@ -5,6 +5,7 @@
     "singleQuote": false,
     "bracketSpacing": true,
     "arrowParens": "always",
+    "plugins": ["prettier-plugin-tailwindcss"],
     "twConfig": "./tailwind.config.js",
     "twUnknownClassesPosition": "end"
 }

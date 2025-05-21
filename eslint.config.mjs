@@ -62,7 +62,7 @@ export default [
             "@next/next/no-document-import-in-page": "off",
 
             // General rules
-            "prettier/prettier": "error",
+            "prettier/prettier": "warn",
             "no-console": ["error", { allow: ["warn", "error"] }],
         },
     },

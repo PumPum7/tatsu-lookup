@@ -22,15 +22,6 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
         const title = `${userData.username}'s Tatsu Profile`;
         const description = `Level ${Math.floor(Math.sqrt((userData.xp * 9) / 625))} • ${userData.reputation} Rep • ${userData.credits} Credits`;
 
-        let baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-        if (!baseUrl) {
-            console.warn("NEXT_PUBLIC_BASE_URL is not set. OpenGraph and Twitter images might not work correctly.");
-            baseUrl = ''; // Fallback to relative path if not set, though not ideal for external services
-        }
-
-        const imageUrl = `${baseUrl}/api/user/${params.userId}/image`;
-        const imageAlt = `Profile card for ${userData.username}`;
-
         return {
             title,
             description,
@@ -39,33 +30,24 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
                 description,
                 images: [
                     {
-                        url: imageUrl,
+                        url: userData.avatar_url,
                         width: 400,
-                        height: 200, // Adjusted height for a 2:1 aspect ratio
-                        alt: imageAlt,
+                        height: 400,
+                        alt: `${userData.username}'s avatar`,
                     },
                 ],
                 type: "profile",
-                username: userData.username, // Changed from firstName to username for clarity
+                firstName: userData.username,
             },
             twitter: {
                 card: "summary_large_image",
                 title,
                 description,
-                images: [
-                    {
-                        url: imageUrl,
-                        alt: imageAlt,
-                        // Twitter doesn't explicitly use width/height in the same way for summary_large_image in Metadata object
-                        // but it's good practice to provide it if the type definition supports it.
-                        // For now, we'll stick to URL and Alt as primary.
-                    }
-                ],
+                images: [userData.avatar_url],
                 creator: "@Pum",
             },
         };
-    } catch (error) {
-        console.error("Error generating metadata:", error);
+    } catch {
         return {
             title: "User not found",
             description: "This user could not be found",
