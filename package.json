@@ -21,6 +21,7 @@
         "babel-plugin-module-resolver": "5.0.2",
         "js-cookie": "^3.0.5",
         "next": "15.1.2",
+        "node-html-to-image": "^5.0.0",
         "postcss": "^8.4.31",
         "react": "19.0.0",
         "react-dom": "19.0.0",
