@@ -46,7 +46,7 @@ function UserSearch() {
                 <div>
                     <input
                         type="number"
-                        placeholder="577840997078401035"
+                        placeholder="User ID"
                         id="search"
                         className={`mr-2 rounded-md bg-tatsuGray text-white ${
                             error.status ? "border-tatsuError" : ""

@@ -18,7 +18,7 @@ export default function RootLayout({
         <html lang="en">
             <body>
                 <Header />
-                <main className="mx-auto max-w-sm md:max-w-2xl lg:max-w-screen-md">
+                <main className="mx-auto max-w-sm md:max-w-2xl lg:max-w-(--breakpoint-md)">
                     {children}
                 </main>
             </body>

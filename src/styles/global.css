@@ -1,16 +1,40 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-body {
+@theme {
+  /* Custom Colors */
+  --color-tatsuGreen: #2ca169;
+  
+  --color-tatsuBlack: #282a2e;
+  
+  --color-tatsuGray-light: #9ca3af;
+  --color-tatsuGray: #434a59;
+  --color-tatsuGray-dark: #23272a;
+  
+  --color-tatsuError: #dc4e4e;
+  
+  --color-tatsu-tokens: rgb(227 191 34);
+  --color-tatsu-exp: rgb(23 161 103);
+  --color-tatsu-level: rgb(52 211 153);
+  --color-tatsu-rep: rgb(167 139 250);
+  --color-tatsu-tier3: rgb(255 242 156);
+  --color-tatsu-tier2: rgb(250 183 255);
+  --color-tatsu-tier1: rgb(171 188 245);
+  --color-tatsu-supporter: rgb(246 104 84);
+  
+  /* Font Family */
+  --font-family-sans: 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+@layer utilities {
+  body {
     background-color: #282a2e;
-    background-image: url("../../public/landing-page-background-pattern.png");
+    background-image: url('../../public/landing-page-background-pattern.png');
     -webkit-background-size: 1100px;
     background-size: 1100px;
     color: #f8fafc;
-}
+  }
 
-.btn {
+  .btn {
     border-radius: 0.375rem;
     border-width: 2px;
     padding: 0.5rem 1rem;
@@ -18,6 +42,7 @@ body {
     transition-property: all;
     transition-duration: 300ms;
     outline: none;
+  }
 }
 
 @layer base {
