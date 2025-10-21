@@ -41,8 +41,8 @@ async function getFavoriteUsers() {
                 }
 
                 return userDataCopy as UserProfile;
-            } catch (error) {
-                console.error(`Failed to fetch user ${userId}:`, error);
+            } catch {
+                // Failed to fetch user, skip it
                 return null;
             }
         })

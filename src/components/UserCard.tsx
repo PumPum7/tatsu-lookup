@@ -53,8 +53,8 @@ function UserCard({ userProfile }: { userProfile: UserProfile }) {
             await navigator.clipboard.writeText(text);
             setShowShareTooltip(true);
             setTimeout(() => setShowShareTooltip(false), 2000);
-        } catch (err) {
-            console.error("Failed to copy:", err);
+        } catch {
+            // Silently fail - user will not see the tooltip
         }
     };
 

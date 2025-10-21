@@ -13,18 +13,15 @@
     },
     "lint-staged": {
         "src/**/*.{ts,tsx}": [
-            "yarn lint"
+            "pnpm lint"
         ]
     },
     "dependencies": {
-        "autoprefixer": "^10.4.21",
         "babel-plugin-module-resolver": "5.0.2",
         "js-cookie": "^3.0.5",
         "next": "15.5.6",
-        "postcss": "^8.5.6",
         "react": "19.2.0",
         "react-dom": "19.2.0",
-        "sass": "^1.93.2",
         "tailwindcss": "4.1.15",
         "tatsu": "1.2.0"
     },

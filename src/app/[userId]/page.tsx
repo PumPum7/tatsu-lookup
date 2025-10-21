@@ -12,7 +12,6 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     const params = await props.params;
     try {
         if (!process.env.TATSU_KEY) {
-            console.error("TATSU_KEY is not defined");
             notFound();
         }
 
@@ -57,7 +56,6 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 
 async function getUserProfile(userId: string): Promise<UserProfile> {
     if (!process.env.TATSU_KEY) {
-        console.error("TATSU_KEY is not defined");
         notFound();
     }
 
